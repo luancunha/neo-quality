@@ -33,98 +33,139 @@
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sidebars.css') }}" rel="stylesheet">
 
+    <style>
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <header class="navbar sticky-top flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Neo Quality</a>
-        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="dropdown px-5">
-            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark"
-                id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                @if ($fristname = collect(explode(' ', Auth::user()->name))->slice(0, 1)->implode(' '))
-                    {{ $fristname }}
-                @endif
+    @auth
+        <header class="navbar sticky-top flex-md-nowrap p-0 shadow">
+           
+            <a href="/" class="navbar-brand col-md-3 col-lg-2">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                <span style="font-size: 1.25em;">Neo Quality</span>
             </a>
-            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Sair</a></li>
-            </ul>
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        </div>
+            <div class="dropdown px-5">
+                <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark"
+                    id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    @if ($fristname = collect(explode(' ', Auth::user()->name))->slice(0, 1)->implode(' '))
+                        {{ $fristname }}
+                    @endif
+                </a>
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                            {{ __('Sair') }}
+                        </a>
 
-    </header>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
 
-    <div id="app">
-        <div class="container-fluid">
-            <div class="row">
-
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light">
-
-                        <ul class="nav nav-pills flex-column mb-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active" aria-current="page">
-                                    <svg class="bi me-2">
-                                        <use xlink:href="#home"></use>
-                                    </svg>
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link link-dark">
-                                    <svg class="bi me-2">
-                                        <use xlink:href="#speedometer2"></use>
-                                    </svg>
-                                    Dashboard
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link link-dark">
-                                    <svg class="bi me-2">
-                                        <use xlink:href="#table"></use>
-                                    </svg>
-                                    Orders
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link link-dark">
-                                    <svg class="bi me-2">
-                                        <use xlink:href="#grid"></use>
-                                    </svg>
-                                    Products
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link link-dark">
-                                    <svg class="bi me-2">
-                                        <use xlink:href="#people-circle"></use>
-                                    </svg>
-                                    Customers
-                                </a>
-                            </li>
-                        </ul>
-                        <hr>
-
-                </nav>
-                <main class="py-4">
-                    @yield('content')
-                </main>
             </div>
-        </div>
 
-    </div>
+        </header>
+
+        <div id="app">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light">
+
+                            <ul class="nav nav-pills flex-column mb-auto">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link active" aria-current="page">
+                                        <svg class="bi me-2">
+                                            <use xlink:href="#home"></use>
+                                        </svg>
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link link-dark">
+                                        <svg class="bi me-2">
+                                            <use xlink:href="#speedometer2"></use>
+                                        </svg>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link link-dark">
+                                        <svg class="bi me-2">
+                                            <use xlink:href="#table"></use>
+                                        </svg>
+                                        Orders
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link link-dark">
+                                        <svg class="bi me-2">
+                                            <use xlink:href="#grid"></use>
+                                        </svg>
+                                        Products
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link link-dark">
+                                        <svg class="bi me-2">
+                                            <use xlink:href="#people-circle"></use>
+                                        </svg>
+                                        Customers
+                                    </a>
+                                </li>
+                            </ul>
+                            <hr>
+
+                    </nav>
+                    <main class="py-4">
+                        <div class="col-md-3 col-lg-2">
+                        </div>
+                        <div class="container" style="overflow: auto; margin-bottom: 6em">
+
+                            @yield('content')
+
+                        </div>
+
+                    </main>
+                    <footer class="footer mt-auto bg-light">
+                        <p class="text-center text-muted border-top pt-3">© 2022 - Luan Cunha</p>
+                    </footer>
+
+                </div>
+            </div>
+
+        </div>
+    @else
+        <main class="py-4">
+            @yield('content')
+        </main>
+    @endauth
+
 </body>
 
 </html>

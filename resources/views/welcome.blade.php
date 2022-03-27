@@ -51,13 +51,26 @@
         }
 
         .links>a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
+            color: #0d6efd;
+            border-color: #0d6efd;
             font-weight: 600;
             letter-spacing: .1rem;
+            text-align: center;
             text-decoration: none;
-            text-transform: uppercase;
+            display: inline-block;
+            line-height: 1.5;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid #0d6efd;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .links>a:hover {
+            color: white;
+            background-color: #0d6efd;
         }
 
         .m-b-md {
