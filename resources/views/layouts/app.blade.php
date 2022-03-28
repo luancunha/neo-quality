@@ -51,9 +51,10 @@
     @auth
         <header class="navbar sticky-top flex-md-nowrap p-0 shadow">
 
-            <a href="/" class="navbar-brand col-md-3 col-lg-2 text-center">
+            <span class="navbar-brand col-md-3 col-lg-2 text-center" style="color: #0d6efd;">
                 <span style="font-size: 1.25em; font-weight: bold;">Neo Quality</span>
-            </a>
+            </span>
+            
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -98,33 +99,41 @@
 
                             <ul class="nav nav-pills flex-column mb-auto">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link active" aria-current="page">
+                                    <a href="/home" class="nav-link active" aria-current="page">
                                         <i class="fas fa-house-chimney bi me-2"></i>
-                                        Inicio
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link link-dark">
-                                        <i class="fas fa-chart-pie bi me-2"></i>
-                                        Dashboard
+                                        Painel
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="nav-link link-dark">
                                         <i class="fas fa-address-card bi me-2"></i>
-                                        Cadastros
+                                        Indicadores
+                                    </a>
+                                    <ul style="list-style-type: none; margin: 0; padding-left: 1em;">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link link-dark">
+                                                <i class="fas fa-clinic-medical bi me-2"></i>
+                                                Estrutura
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link link-dark">
+                                                <i class="fas fa-clipboard-list bi me-2"></i>
+                                                Internação
+                                            </a>
+                                        </li>
+                                    </ul>   
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link link-dark">
+                                        <i class="fas fa-chart-pie bi me-2"></i>
+                                        Relatórios
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="nav-link link-dark">
-                                        <i class="fas fa-at bi me-2"></i>
-                                        teste
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link link-dark">
-                                        <i class="fas fa-at bi me-2"></i>
-                                        teste
+                                        <i class="fas fa-users bi me-2"></i>
+                                        Usuários
                                     </a>
                                 </li>
                             </ul>
@@ -142,7 +151,7 @@
 
                     </main>
                     <footer class="footer mt-auto bg-light">
-                        <p class="text-center text-muted border-top pt-3">© 2022 - Luan Cunha</p>
+                        <p class="text-center text-muted border-top pt-3" style="margin-left: 14em;">© 2022 - Luan Cunha</p>
                     </footer>
 
                 </div>

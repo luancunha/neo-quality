@@ -88,10 +88,6 @@
                     <a href="{{ url('/home') }}">Inicio</a>
                 @else
                     <a href="{{ route('login') }}">Entrar</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Registro</a>
-                    @endif
                 @endauth
             </div>
         @endif

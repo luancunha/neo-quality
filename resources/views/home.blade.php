@@ -1,16 +1,47 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>Section title</h2>
-    <br>    
+    <h2 style="border-bottom: 1px solid #dee2e6 !important;">Painel</h2>
     <br>
-    <i class="far fa-user"></i>
-    <i class="fal fa-user"></i>
-    <i class="fab fa-github-square"></i>
+    <div class="row" style="justify-content: center;">
+        <div class="col-sm-3">
+            <div class="card border-info text-center">
+                <div class="card-body">
+                    <h5 class="card-title">RN's internados</h5>
+                    <p class="card-text fs-3" style="color: #0d6efd;">8 internações</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card border-info text-center">
+                <div class="card-body">
+                    <h5 class="card-title">RN's internados</h5>
+                    <p class="card-text fs-3" style="color: #0d6efd;">8 internações</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card border-info text-center">
+                <div class="card-body">
+                    <h5 class="card-title">RN's internados</h5>
+                    <p class="card-text fs-3" style="color: #0d6efd;">8 internações</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <br>
-    qweqwe
-    <br>
-    <br>
-    qweqwe
-    <br>
+    <div class="row">
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Indicadores de<br>Estrutura</a>
+        </div>
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Indicadores de<br>Internação</a>
+        </div>
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Adicionar<br>Internação</a>
+        </div>
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Resultado/<br>Relatório</a>
+        </div>
+    </div>
 @endsection
