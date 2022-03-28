@@ -57,6 +57,7 @@ body {
 .sidebar .nav-link.active {
   color: #fff;
   fill: #fff;
+  margin: 0.25em;
 }
 
 .sidebar .nav-link:hover .feather,
@@ -65,13 +66,14 @@ body {
 }
 
 a.nav-link.link-dark:hover {
-  color: #0d6efd;
-  fill: #0d6efd;
+  color: #fff;
+  fill: #fff;
+  background-color: #3490dc;
 }
 
 .bi {
   width: 30px;
-  height: 20px;
+  height: 1em;
 }
 
 .sidebar-heading {
@@ -87,8 +89,6 @@ a.nav-link.link-dark:hover {
   padding-top: .75rem;
   padding-bottom: .75rem;
   font-size: 1rem;
-  background-color: #fff;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
 }
 
 .navbar .navbar-toggler {

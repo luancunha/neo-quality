@@ -2,57 +2,15 @@
 
 @section('content')
     <h2>Section title</h2>
+    <br>    
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    asdasd
-    <br>
-    asddsa
-    <br>
-    <br>
-    <br>
+    <i class="far fa-user"></i>
+    <i class="fal fa-user"></i>
+    <i class="fab fa-github-square"></i>
     <br>
     qweqwe
     <br>
     <br>
-    <br>
-    <br>
-    asdasd
-    <br>
-    asddsa
-    <br>
-    <br>
-    <br>
-    <br>
     qweqwe
     <br>
-    <br>
-    <br>
-    <br>
-    asdasd
-    <br>
-    asddsa
-    <br>
-    <br>
-    <br>
-    <br>
-    qweqwe
-    <br>
-    <br>
-    <br>
-    <br>
-    asdasd
-    <br>
-    asddsa
-    <br>
-    <br>
-    <br>
-    <br>
-    qweqwe
-    <br>
-    <br>
-    <br>
-    
 @endsection

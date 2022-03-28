@@ -17,6 +17,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/all.js') }}" defer></script>
     <script src="{{ asset('js/sidebars.js') }}" defer></script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -30,6 +31,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sidebars.css') }}" rel="stylesheet">
 
@@ -48,10 +50,9 @@
 
     @auth
         <header class="navbar sticky-top flex-md-nowrap p-0 shadow">
-           
-            <a href="/" class="navbar-brand col-md-3 col-lg-2">
-                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span style="font-size: 1.25em;">Neo Quality</span>
+
+            <a href="/" class="navbar-brand col-md-3 col-lg-2 text-center">
+                <span style="font-size: 1.25em; font-weight: bold;">Neo Quality</span>
             </a>
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
@@ -62,22 +63,20 @@
             <div class="dropdown px-5">
                 <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark"
                     id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <i class="fas fa-user me-2" style="height: 1.5em;"></i>
                     @if ($fristname = collect(explode(' ', Auth::user()->name))->slice(0, 1)->implode(' '))
                         {{ $fristname }}
                     @endif
                 </a>
                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-pen me-2"></i>Perfil</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                            {{ __('Sair') }}
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            <i class="fas fa-sign-out-alt me-2"></i>{{ __('Sair') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -95,51 +94,41 @@
                 <div class="row">
 
                     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light">
+                        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="box-shadow: inset -1px 0 0 rgb(0 0 0 / 10%);">
 
                             <ul class="nav nav-pills flex-column mb-auto">
                                 <li class="nav-item">
                                     <a href="#" class="nav-link active" aria-current="page">
-                                        <svg class="bi me-2">
-                                            <use xlink:href="#home"></use>
-                                        </svg>
-                                        Home
+                                        <i class="fas fa-house-chimney bi me-2"></i>
+                                        Inicio
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="nav-link link-dark">
-                                        <svg class="bi me-2">
-                                            <use xlink:href="#speedometer2"></use>
-                                        </svg>
+                                        <i class="fas fa-chart-pie bi me-2"></i>
                                         Dashboard
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="nav-link link-dark">
-                                        <svg class="bi me-2">
-                                            <use xlink:href="#table"></use>
-                                        </svg>
-                                        Orders
+                                        <i class="fas fa-address-card bi me-2"></i>
+                                        Cadastros
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="nav-link link-dark">
-                                        <svg class="bi me-2">
-                                            <use xlink:href="#grid"></use>
-                                        </svg>
-                                        Products
+                                        <i class="fas fa-at bi me-2"></i>
+                                        teste
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="nav-link link-dark">
-                                        <svg class="bi me-2">
-                                            <use xlink:href="#people-circle"></use>
-                                        </svg>
-                                        Customers
+                                        <i class="fas fa-at bi me-2"></i>
+                                        teste
                                     </a>
                                 </li>
                             </ul>
-                            <hr>
+                        </div>
 
                     </nav>
                     <main class="py-4">
