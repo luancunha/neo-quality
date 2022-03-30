@@ -54,7 +54,7 @@
             <span class="navbar-brand col-md-3 col-lg-2 text-center" style="color: #0d6efd;">
                 <span style="font-size: 1.25em; font-weight: bold;">Neo Quality</span>
             </span>
-            
+
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -76,7 +76,7 @@
                     </li>
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                                            document.getElementById('logout-form').submit();">
                             <i class="fas fa-sign-out-alt me-2"></i>{{ __('Sair') }}
                         </a>
 
@@ -95,7 +95,8 @@
                 <div class="row">
 
                     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="box-shadow: inset -1px 0 0 rgb(0 0 0 / 10%);">
+                        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light"
+                            style="box-shadow: inset -1px 0 0 rgb(0 0 0 / 10%);">
 
                             <ul class="nav nav-pills flex-column mb-auto">
                                 <li class="nav-item">
@@ -122,7 +123,7 @@
                                                 Internação
                                             </a>
                                         </li>
-                                    </ul>   
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href="#" class="nav-link link-dark">
@@ -130,12 +131,14 @@
                                         Relatórios
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="nav-link link-dark">
-                                        <i class="fas fa-users bi me-2"></i>
-                                        Usuários
-                                    </a>
-                                </li>
+                                @if (Auth::user()->name == 'admin')
+                                    <li>
+                                        <a href="#" class="nav-link link-dark">
+                                            <i class="fas fa-users bi me-2"></i>
+                                            Usuários
+                                        </a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
 
