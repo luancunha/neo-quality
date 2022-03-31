@@ -51,8 +51,8 @@
     @auth
         <header class="navbar sticky-top flex-md-nowrap p-0 shadow">
 
-            <span class="navbar-brand col-md-3 col-lg-2 text-center" style="color: #0d6efd;">
-                <span style="font-size: 1.25em; font-weight: bold;">Neo Quality</span>
+            <span class="navbar-brand col-md-3 col-lg-2 text-center p-2" style="color: #0d6efd;">
+                <span style="font-size: 1.5em; font-weight: bold;">Neo Quality</span>
             </span>
 
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
@@ -100,25 +100,25 @@
 
                             <ul class="nav nav-pills flex-column mb-auto">
                                 <li class="nav-item">
-                                    <a href="/home" class="nav-link active" aria-current="page">
+                                    <a href="/home" class="nav-link link-dark {{ (request()->is('home*')) ? 'active' : '' }}">
                                         <i class="fas fa-house-chimney bi me-2"></i>
                                         Painel
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link link-dark">
+                                    <a href="#" class="nav-link link-dark {{ (request()->is('indicadores*')) ? 'active' : '' }}">
                                         <i class="fas fa-address-card bi me-2"></i>
                                         Indicadores
                                     </a>
                                     <ul style="list-style-type: none; margin: 0; padding-left: 1em;">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link link-dark">
+                                            <a href="#" class="nav-link link-dark {{ (request()->is('estruturas*')) ? 'active' : '' }}">
                                                 <i class="fas fa-clinic-medical bi me-2"></i>
                                                 Estrutura
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link link-dark">
+                                            <a href="{{ url('/internacoes') }}" class="nav-link link-dark {{ (request()->is('internacoes*')) ? 'active' : '' }}">
                                                 <i class="fas fa-clipboard-list bi me-2"></i>
                                                 Internação
                                             </a>
@@ -126,14 +126,14 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link link-dark">
+                                    <a href="#" class="nav-link link-dark {{ (request()->is('relatorios*')) ? 'active' : '' }}">
                                         <i class="fas fa-chart-pie bi me-2"></i>
                                         Relatórios
                                     </a>
                                 </li>
                                 @if (Auth::user()->name == 'admin')
                                     <li>
-                                        <a href="#" class="nav-link link-dark">
+                                        <a href="{{ url('/usuarios') }}" class="nav-link link-dark {{ (request()->is('usuarios*')) ? 'active' : '' }}">
                                             <i class="fas fa-users bi me-2"></i>
                                             Usuários
                                         </a>

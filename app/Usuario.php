@@ -7,10 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario extends Model
 {
     protected $fillable = [
-        'nome', 'email', 'senha'
-    ];
-
-    protected $hidden = [
-        'crm_coren', 'telefone',
+        'nome','crm_coren', 'telefone', 'email', 'senha'
     ];
 }

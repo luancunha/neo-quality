@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Usuario;
+use App\Internacao;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class InternacaoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::all();
-        return view('usuarios.index', compact('usuarios'));
+        $internacoes = Internacao::all();
+        return view('internacoes.index', compact('internacoes'));
     }
 
     /**
@@ -25,7 +25,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('usuarios.create');
+        return view('internacoes.create');
     }
 
     /**
@@ -38,13 +38,17 @@ class UsuarioController extends Controller
     {
         $validatedData = $request->validate([
             'nome' => 'required|max:255',
-            'crm_coren' => 'required|numeric',
-            'email' => 'required|max:255',
-            'telefone' => 'required|numeric',
-            'senha' => 'required|max:255',
+            'mae' => 'required|max:255',
+            'sexo' => 'required|max:255',
+            'tipo_parto' => 'required|max:255',
+            'tmp_gestacao' => 'required|numeric',
+            'peso' => 'required|numeric',
+            'leito' => 'required|numeric',
+            'tamanho' => 'required|numeric',
+            'dt_internacao' => 'required|max:255',
         ]);
-        $show = Usuario::create($validatedData);
-        return redirect('/usuarios')->with('success', 'Usuário adicionado com sucesso!');
+        $show = Internacao::create($validatedData);
+        return redirect('/internacoes')->with('success', 'Dados de Corona adicionado com sucesso!');
     }
 
     /**
@@ -55,8 +59,8 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        $usuarios = Usuario::findOrFail($id);
-        return view('usuarios.show',compact('usuarios'));
+        $internacoes = Internacao::findOrFail($id);
+        return view('internacoes.show',compact('internacoes'));
     }
 
     /**
@@ -67,8 +71,8 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $usuarios = Usuario::findOrFail($id);
-        return view('usuarios.edit', compact('usuarios'));
+        $internacoes = Internacao::findOrFail($id);
+        return view('internacoes.edit', compact('internacoes'));
     }
 
     /**
@@ -85,8 +89,8 @@ class UsuarioController extends Controller
             'symptoms' => 'required',
             'cases' => 'required|numeric',
         ]);
-        Usuario::whereId($id)->update($validatedData);
-        return redirect('/usuarios')->with('success', 'Usuário atualizado com sucesso!');
+        Internacao::whereId($id)->update($validatedData);
+        return redirect('/coronas')->with('success', 'Dados de Corona atualizado com sucesso!');
     }
 
     /**
@@ -97,8 +101,8 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        $usuario = Usuario::findOrFail($id);
-        $usuario->delete();
-        return redirect('/usuarios')->with('success', 'Usuário removido com sucesso!');
+        $internacoes = Internacao::findOrFail($id);
+        $internacoes->delete();
+        return redirect('/internacoes')->with('success', 'Dados de Corona removido com sucesso!');
     }
 }
