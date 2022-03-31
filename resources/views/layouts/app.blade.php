@@ -154,7 +154,7 @@
 
                     </main>
                     <footer class="footer mt-auto bg-light">
-                        <p class="text-center text-muted border-top pt-3" style="margin-left: 14em;">© 2022 - Luan Cunha</p>
+                        <p class="text-center text-muted border-top pt-3" style="margin-left: 14em;">© 2021 - Luan Cunha</p>
                     </footer>
 
                 </div>

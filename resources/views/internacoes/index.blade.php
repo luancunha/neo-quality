@@ -20,41 +20,23 @@
                             </div>
                         @endif
 
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>@lang('Nome')</td>
-                                    <td>@lang('CRM/COREN')</td>
-                                    <td>@lang('E-mail')</td>
-                                    <td>@lang('Telefone')</td>
-                                    <td colspan="3" class="text-center">@lang('Ações')</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($internacoes as $inter)
-                                    <tr>
-                                        <td>{{ $inter->id }}</td>
-                                        <td>{{ $inter->nome }}</td>
-                                        <td>{{ number_format($inter->crm_coren, 0, ',', '.') }}</td>
-                                        <td>{{ $inter->email }}</td>
-                                        <td>{{ number_format($inter->telefone, 0, ',', '.') }}</td>
-                                        <td class="text-center p-0 align-middle" width="70">
-                                            <a href="{{ route('internacoes.edit', $inter->id) }}"
-                                                class="btn btn-primary btn-sm">@lang('Editar')
-                                            </a>
-                                        </td>
-                                        <td class="text-center p-0 align-middle" width="70">
-                                            <form action="{{ route('internacoes.destroy', $inter->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        <div class="row" style="justify-content: center;">
+
+                            @foreach ($internacoes as $inter)
+                                <div class="col-sm-4 mb-4">
+                                    <div class="card border-info">
+                                        <div class="card-body" style="border-left: 15px solid #0d6efd;">
+                                            <h5 class="card-title" style="color: #0d6efd;">{{ $inter->nome }}</h5>
+                                            <p class="card-text m-0"><strong>Mãe:</strong> {{ $inter->nome }}</p>
+                                            <p class="card-text m-0"><strong>Sexo:</strong> {{ $inter->sexo }}&nbsp&nbsp&nbsp&nbsp&nbsp <strong>Leito:</strong> {{ $inter->leito }}</p>
+                                            <p class="card-text m-0"><strong>Data da Internação:</strong> {{ $inter->dt_internacao }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            @endforeach
+
+                        </div>
 
                     </div>
                 </div>

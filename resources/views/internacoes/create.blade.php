@@ -80,7 +80,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="leito">Leito</label>:</label>
-                                    <input type="text" class="form-control" name="leito" />
+                                    <input type="number" class="form-control" name="leito" />
                                 </div>
                             </div>
                             <div class="col-md-6">

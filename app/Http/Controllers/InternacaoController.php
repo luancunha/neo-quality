@@ -46,9 +46,10 @@ class InternacaoController extends Controller
             'leito' => 'required|numeric',
             'tamanho' => 'required|numeric',
             'dt_internacao' => 'required|max:255',
+            'status' => '1',
         ]);
         $show = Internacao::create($validatedData);
-        return redirect('/internacoes')->with('success', 'Dados de Corona adicionado com sucesso!');
+        return redirect('/internacoes')->with('success', 'Internação adicionada com sucesso!');
     }
 
     /**
@@ -90,7 +91,7 @@ class InternacaoController extends Controller
             'cases' => 'required|numeric',
         ]);
         Internacao::whereId($id)->update($validatedData);
-        return redirect('/coronas')->with('success', 'Dados de Corona atualizado com sucesso!');
+        return redirect('/coronas')->with('success', 'Internação atualizada com sucesso!');
     }
 
     /**
@@ -103,6 +104,6 @@ class InternacaoController extends Controller
     {
         $internacoes = Internacao::findOrFail($id);
         $internacoes->delete();
-        return redirect('/internacoes')->with('success', 'Dados de Corona removido com sucesso!');
+        return redirect('/internacoes')->with('success', 'Internação removida com sucesso!');
     }
 }

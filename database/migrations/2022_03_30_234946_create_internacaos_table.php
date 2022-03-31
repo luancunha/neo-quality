@@ -24,6 +24,7 @@ class CreateInternacaosTable extends Migration
             $table->integer('leito');
             $table->integer('tamanho');
             $table->date('dt_internacao');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

@@ -9,4 +9,8 @@ class Usuario extends Model
     protected $fillable = [
         'nome','crm_coren', 'telefone', 'email', 'senha'
     ];
+
+    protected $hidden = [
+        //
+    ];
 }
