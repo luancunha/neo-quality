@@ -49,8 +49,8 @@ class DatabaseSeeder extends Seeder
             'dt_internacao' => '2021-01-03',
         ]);
         DB::table('internacaos')->insert([
-            'nome' => 'Augusto Martins Cunha',
-            'mae' => 'Mariana Martins Almeida Cunha',
+            'nome' => 'Augusto Pedro Silva',
+            'mae' => 'Diane Silva Barbosa',
             'sexo' => 'Masculino',
             'tipo_parto' => 'Normal',
             'tmp_gestacao' => '38',
@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
             'nome' => 'Valentina Costa Mendes',
             'mae' => 'Carla Cristina Mendes',
             'sexo' => 'Feminino',
-            'tipo_parto' => 'Normal',
+            'tipo_parto' => 'Cesária',
             'tmp_gestacao' => '33',
             'peso' => 1200,
             'tamanho' => 32,
@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('internacaos')->insert([
             'nome' => 'Luísa Martins Cunha',
-            'mae' => 'Mariana Martins Almeida Cunha',
+            'mae' => 'Marta Martins Santos',
             'sexo' => 'Feminino',
             'tipo_parto' => 'Cesária',
             'tmp_gestacao' => '40',
@@ -80,6 +80,17 @@ class DatabaseSeeder extends Seeder
             'tamanho' => 35,
             'leito' => 00002,
             'dt_internacao' => '2021-03-05',
+        ]);
+        DB::table('internacaos')->insert([
+            'nome' => 'Arthur Silva Moura',
+            'mae' => 'Thaís Santos Moura',
+            'sexo' => 'Masculino',
+            'tipo_parto' => 'Cesária',
+            'tmp_gestacao' => '37',
+            'peso' => 1400,
+            'tamanho' => 34,
+            'leito' => 00005,
+            'dt_internacao' => '2021-04-05',
         ]);
 
     }
