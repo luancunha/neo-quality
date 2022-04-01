@@ -14,3 +14,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('usuarios', 'UsuarioController');
 
 Route::resource('internacoes', 'InternacaoController');
+
+Route::resource('dados_internacoes', 'DadosInternacaoController');
+
+Route::get('/internacoes/{status}/{id}', 'InternacaoController@status')->name('internacoes.status');

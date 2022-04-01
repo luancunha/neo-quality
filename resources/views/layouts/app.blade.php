@@ -118,7 +118,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('/internacoes') }}" class="nav-link link-dark {{ (request()->is('internacoes*')) ? 'active' : '' }}">
+                                            <a href="{{ url('/internacoes') }}" class="nav-link link-dark {{ (request()->is('internacoes*') || request()->is('dados_internacoes*')) ? 'active' : '' }}">
                                                 <i class="fas fa-clipboard-list bi me-2"></i>
                                                 Internação
                                             </a>

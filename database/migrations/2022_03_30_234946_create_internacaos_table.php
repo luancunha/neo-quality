@@ -14,7 +14,7 @@ class CreateInternacaosTable extends Migration
     public function up()
     {
         Schema::create('internacaos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nome');
             $table->string('mae');
             $table->string('sexo');

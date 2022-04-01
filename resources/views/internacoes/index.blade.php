@@ -24,16 +24,49 @@
 
                             @foreach ($internacoes as $inter)
                                 <div class="col-sm-4 mb-4">
-                                    <div class="card border-info">
-                                        <div class="card-body" style="border-left: 15px solid #0d6efd;">
-                                            <h5 class="card-title" style="color: #0d6efd;">{{ $inter->nome }}</h5>
-                                            <p class="card-text m-0"><strong>Mãe:</strong> {{ $inter->nome }}</p>
-                                            <p class="card-text m-0"><strong>Sexo:</strong> {{ $inter->sexo }}&nbsp&nbsp&nbsp&nbsp&nbsp <strong>Leito:</strong> {{ $inter->leito }}</p>
-                                            <p class="card-text m-0"><strong>Data da Internação:</strong> {{ $inter->dt_internacao }}</p>
+                                    <div
+                                        class="card {{ $inter->status == 1 ? 'border-info' : ($inter->status == 2 ? 'border-secondary' : 'border-danger') }}">
+                                        <div class="card-body"
+                                            style="border-left: 15px solid {{ $inter->status == 1 ? '#0d6efd' : ($inter->status == 2 ? '#6c757d' : '#e3342f') }}">
+                                            <h5 class="card-title"
+                                                style="color: {{ $inter->status == 1 ? '#0d6efd' : ($inter->status == 2 ? '#6c757d' : '#e3342f') }}">
+                                                {{ $inter->nome }}</h5>
+                                            <p class="card-text m-0"><strong>Mãe:</strong> {{ $inter->mae }}</p>
+                                            <p class="card-text m-0"><strong>Sexo:</strong>
+                                                {{ $inter->sexo }}&nbsp&nbsp&nbsp&nbsp&nbsp <strong>Leito:</strong>
+                                                {{ $inter->leito }}</p>
+                                            <p class="card-text m-0"><strong>Data da Internação:</strong>
+                                                {{ $inter->dt_internacao }}</p>
+
+                                            @if ($inter->status == 1)
+                                                <div class="text-center p-1 align-middle">
+                                                    <form action="{{ route('internacoes.destroy', $inter->id) }}"
+                                                        method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <a href="{{ route('dados_internacoes.show', $inter->id) }}"
+                                                            class="btn btn-primary btn-sm">@lang('Ver')
+                                                        </a>
+
+                                                        <a href="internacoes/2/{{$inter->id}}"
+                                                            class="btn btn-secondary btn-sm">@lang('Alta')
+                                                        </a>
+                                                        <a href="internacoes/3/{{$inter->id}}"
+                                                            class="btn btn-danger btn-sm">@lang('Óbito')
+                                                        </a>
+                                                    
+                                                        @if (Auth::user()->name == 'admin')
+                                                            <button class="btn btn-dark btn-sm"
+                                                                type="submit">Delete</button>
+                                                        @endif
+                                                    </form>
+                                                </div>
+                                            @else
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>
-                                
                             @endforeach
 
                         </div>

@@ -91,7 +91,7 @@ class InternacaoController extends Controller
             'cases' => 'required|numeric',
         ]);
         Internacao::whereId($id)->update($validatedData);
-        return redirect('/coronas')->with('success', 'Internação atualizada com sucesso!');
+        return redirect('/internacoes')->with('success', 'Internação atualizada com sucesso!');
     }
 
     /**
@@ -106,4 +106,18 @@ class InternacaoController extends Controller
         $internacoes->delete();
         return redirect('/internacoes')->with('success', 'Internação removida com sucesso!');
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $status
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function status($status, $id)
+    {
+        Internacao::whereId($id)->update(['status' => $status]);
+        return redirect('/internacoes')->with('success', 'Internação atualizada com sucesso!');
+    }
+
 }
