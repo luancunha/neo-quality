@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\DadosInternacao;
-use App\Internacao;
+use App\Estrutura;
 use Illuminate\Http\Request;
 
-class DadosInternacaoController extends Controller
+class EstruturaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class DadosInternacaoController extends Controller
      */
     public function index()
     {
-        $dados_internacoes = DadosInternacao::all();
-        return view('dados_internacoes.index', compact('dados_internacoes'));
+        $estruturas = Estrutura::all();
+        return view('estruturas.index', compact('estruturas'));
     }
 
     /**
@@ -26,7 +25,7 @@ class DadosInternacaoController extends Controller
      */
     public function create()
     {
-        return view('dados_internacoes.create');
+        return view('estruturas.create');
     }
 
     /**
@@ -38,17 +37,14 @@ class DadosInternacaoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'cod_internacao' => 'required',
-            'data' => 'required',
-            'peso' => 'required|numeric',
-            'tamanho' => 'required|numeric',
-            'boo_sufarctante' => 'required|numeric',
-            'sufarctante' => 'required|numeric',
-            'boo_antibiotico' => 'required|numeric',
-            'antibiotico' => 'required|numeric',
+            'dt_estrutura' => 'required',
+            'num_incubadora' => 'required|numeric',
+            'num_rns' => 'required|numeric',
+            'num_oximetro' => 'required|numeric',
+            'num_enfermeiro' => 'required|numeric',
         ]);
-        $show = DadosInternacao::create($validatedData);
-        return redirect('/dados_internacoes')->with('success', 'Dados da Internação adicionado com sucesso!');
+        $show = Estrutura::create($validatedData);
+        return redirect('/estruturas')->with('success', 'Dados da Estrutura adicionado com sucesso!');
     }
 
     /**
@@ -59,9 +55,8 @@ class DadosInternacaoController extends Controller
      */
     public function show($id)
     {
-        $inter = Internacao::findOrFail($id);
-        $dados_internacoes = DadosInternacao::all();
-        return view('dados_internacoes.show',compact('inter', 'dados_internacoes'));
+        $estruturas = Estrutura::findOrFail($id);
+        return view('estruturas.show',compact('estruturas'));
     }
 
     /**
@@ -72,8 +67,8 @@ class DadosInternacaoController extends Controller
      */
     public function edit($id)
     {
-        $dados_internacoes = DadosInternacao::findOrFail($id);
-        return view('dados_internacoes.edit', compact('dados_internacoes'));
+        $estruturas = Estrutura::findOrFail($id);
+        return view('estruturas.edit', compact('estruturas'));
     }
 
     /**
@@ -90,8 +85,8 @@ class DadosInternacaoController extends Controller
             'symptoms' => 'required',
             'cases' => 'required|numeric',
         ]);
-        DadosInternacao::whereId($id)->update($validatedData);
-        return redirect('/dados_internacoes')->with('success', 'Dados de Corona atualizado com sucesso!');
+        Estrutura::whereId($id)->update($validatedData);
+        return redirect('/estruturas')->with('success', 'Dados de Corona atualizado com sucesso!');
     }
 
     /**
@@ -102,8 +97,8 @@ class DadosInternacaoController extends Controller
      */
     public function destroy($id)
     {
-        $dados_internacoes = DadosInternacao::findOrFail($id);
-        $dados_internacoes->delete();
-        return redirect('/dados_internacoes')->with('success', 'Dados de Corona removido com sucesso!');
+        $estruturas = Estrutura::findOrFail($id);
+        $estruturas->delete();
+        return redirect('/estruturas')->with('success', 'Dados de Corona removido com sucesso!');
     }
 }

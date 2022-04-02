@@ -106,13 +106,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link link-dark {{ (request()->is('indicadores*')) ? 'active' : '' }}">
+                                    <span class="nav-link link-dark">
                                         <i class="fas fa-address-card bi me-2"></i>
                                         Indicadores
-                                    </a>
+                                    </span>
                                     <ul style="list-style-type: none; margin: 0; padding-left: 1em;">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link link-dark {{ (request()->is('estruturas*')) ? 'active' : '' }}">
+                                            <a href="{{ url('/estruturas') }}" class="nav-link link-dark {{ (request()->is('estruturas*')) ? 'active' : '' }}">
                                                 <i class="fas fa-clinic-medical bi me-2"></i>
                                                 Estrutura
                                             </a>

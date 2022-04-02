@@ -18,3 +18,5 @@ Route::resource('internacoes', 'InternacaoController');
 Route::resource('dados_internacoes', 'DadosInternacaoController');
 
 Route::get('/internacoes/{status}/{id}', 'InternacaoController@status')->name('internacoes.status');
+
+Route::resource('estruturas', 'EstruturaController');

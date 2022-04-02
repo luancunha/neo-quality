@@ -44,34 +44,46 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <td>ID</td>
-                                    <td>@lang('Nome')</td>
-                                    <td>@lang('CRM/COREN')</td>
-                                    <td>@lang('E-mail')</td>
-                                    <td>@lang('Telefone')</td>
-                                    <td>@lang('Ações')</td>
+                                    <td>@lang('Data')</td>
+                                    <td>@lang('Peso')</td>
+                                    <td>@lang('Tamanho')</td>
+                                    <td>@lang('Sufarctante')</td>
+                                    <td>@lang('Antibiotico')</td>
+                                    <td colspan="3" class="text-center">@lang('Ações')</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($dados_internacoes as $dado)
                                     <tr>
-                                        <td>{{ $dado->id }}</td>
-                                        <td>{{ $dado->nome }}</td>
-                                        <td>{{ number_format($user->crm_coren, 0, ',', '.') }}</td>
-                                        <td>{{ $dado->email }}</td>
-                                        <td>{{ number_format($dado->telefone, 0, ',', '.') }}</td>
-                                        <td>{{ number_format($dado->telefone, 0, ',', '.') }}</td>
+                                        <td>{{ $dado->data }}</td>
+                                        <td>{{ $dado->peso }}</td>
+                                        <td>{{ $dado->tamanho }}</td>
+                                        <td>{{ $dado->surfactante }}</td>
+                                        <td>{{ $dado->antibiotico }}</td>
+                                        <td class="text-center p-0 align-middle" width="70">
+                                            <a href="{{ route('dados_internacoes.edit', $dado->id) }}"
+                                                class="btn btn-primary btn-sm">@lang('Editar')
+                                            </a>
+                                        </td>
+                                        <td class="text-center p-0 align-middle" width="70">
+                                            <form action="{{ route('dados_internacoes.destroy', $dado->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
-                            Adicionar
-                        </button>
-                    </div>
+                        <div class="col-md-12 text-center">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">
+                                Adicionar
+                            </button>
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,18 +92,85 @@
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Dados</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <form method="post" action="{{ route('dados_internacoes.store') }}" class="row gy-2 align-items-center">
+                        @csrf
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="cod_internacao"></label>
+                                <input type="number" class="form-control" name="cod_internacao" value="{{ $inter->id }}"/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="data">Data:</label>
+                                <input type="date" class="form-control" name="data" value="<?php echo date('Y-m-d'); ?>"/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="peso">Peso:</label>
+                                <input type="number" class="form-control" name="peso" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="tamanho">Tamanho</label>:</label>
+                                <input type="number" class="form-control" name="tamanho" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="tmp_gestacao">Tempo de Gestação:</label>
+                                <input type="number" class="form-control" name="tmp_gestacao" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="sexo">Sexo:</label>
+                                <input type="text" class="form-control" name="sexo" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="peso">Peso:</label>
+                                <input type="number" class="form-control" name="peso" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="tamanho">Tamanho:</label>
+                                <input type="number" class="form-control" name="tamanho" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="leito">Leito</label>:</label>
+                                <input type="number" class="form-control" name="leito" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="dt_internacao">Data da Internação:</label>
+                                <input type="date" class="form-control" name="dt_internacao" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
