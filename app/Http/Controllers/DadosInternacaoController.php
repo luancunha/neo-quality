@@ -42,13 +42,13 @@ class DadosInternacaoController extends Controller
             'data' => 'required',
             'peso' => 'required|numeric',
             'tamanho' => 'required|numeric',
-            'boo_sufarctante' => 'required|numeric',
-            'sufarctante' => 'required|numeric',
-            'boo_antibiotico' => 'required|numeric',
-            'antibiotico' => 'required|numeric',
+            'boo_sufarctante' => 'boolean',
+            'sufarctante' => 'numeric',
+            'boo_antibiotico' => 'boolean',
+            'antibiotico' => 'numeric',
         ]);
         $show = DadosInternacao::create($validatedData);
-        return redirect('/dados_internacoes')->with('success', 'Dados da Internação adicionado com sucesso!');
+        return redirect("/dados_internacoes/$request->cod_internacao")->with('success', 'Dados da Internação adicionado com sucesso!');
     }
 
     /**
@@ -60,7 +60,7 @@ class DadosInternacaoController extends Controller
     public function show($id)
     {
         $inter = Internacao::findOrFail($id);
-        $dados_internacoes = DadosInternacao::all();
+        $dados_internacoes = DadosInternacao::where('cod_internacao', $id)->get();
         return view('dados_internacoes.show',compact('inter', 'dados_internacoes'));
     }
 
@@ -104,6 +104,6 @@ class DadosInternacaoController extends Controller
     {
         $dados_internacoes = DadosInternacao::findOrFail($id);
         $dados_internacoes->delete();
-        return redirect('/dados_internacoes')->with('success', 'Dados de Corona removido com sucesso!');
+        return redirect("/dados_internacoes/$dados_internacoes->cod_internacao")->with('success', 'Dados da Internação removido com sucesso!');
     }
 }

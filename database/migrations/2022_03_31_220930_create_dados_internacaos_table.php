@@ -21,7 +21,7 @@ class CreateDadosInternacaosTable extends Migration
             $table->integer('peso');
             $table->integer('tamanho');
             $table->boolean('boo_sufarctante');
-            $table->string('sufarctante');
+            $table->integer('sufarctante');
             $table->boolean('boo_antibiotico');
             $table->integer('antibiotico');
             $table->timestamps();

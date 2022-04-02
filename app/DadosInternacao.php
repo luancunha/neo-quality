@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class DadosInternacao extends Model
 {
     protected $fillable = [
-        'data', 'peso', 'tamanho','sufarctante', 'antibiotico',
+        'cod_internacao','data', 'peso', 'tamanho', 'boo_sufarctante', 'sufarctante', 'boo_antibiotico', 'antibiotico',
     ];
 
     protected $hidden = [
-        'cod_internacao',
+        //
     ];
 }

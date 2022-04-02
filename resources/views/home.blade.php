@@ -32,16 +32,16 @@
     <br>
     <div class="row">
         <div class="d-grid gap-2 col-3 mx-auto">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Indicadores de<br>Estrutura</a>
+            <a class="btn btn-primary btn-lg" href="{{ url('estruturas') }}" role="button">Indicadores de<br>Estrutura</a>
         </div>
         <div class="d-grid gap-2 col-3 mx-auto">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Indicadores de<br>Internação</a>
+            <a class="btn btn-primary btn-lg" href="{{ url('internacoes') }}" role="button">Indicadores de<br>Internação</a>
         </div>
         <div class="d-grid gap-2 col-3 mx-auto">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Adicionar<br>Internação</a>
+            <a class="btn btn-primary btn-lg" href="{{ url('internacoes/create') }}" role="button">Adicionar<br>Internação</a>
         </div>
         <div class="d-grid gap-2 col-3 mx-auto">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Resultado/<br>Relatório</a>
+            <a class="btn btn-primary btn-lg" href="{{ url('resultados') }}" role="button">Resultado/<br>Relatório</a>
         </div>
     </div>
 @endsection

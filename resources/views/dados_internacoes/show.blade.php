@@ -66,7 +66,8 @@
                                             </a>
                                         </td>
                                         <td class="text-center p-0 align-middle" width="70">
-                                            <form action="{{ route('dados_internacoes.destroy', $dado->id) }}" method="post">
+                                            <form action="{{ route('dados_internacoes.destroy', $dado->id) }}"
+                                                method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-sm" type="submit">Delete</button>
@@ -99,20 +100,22 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ route('dados_internacoes.store') }}" class="row gy-2 align-items-center">
+                    <form method="post" action="{{ route('dados_internacoes.store') }}"
+                        class="row gy-2 align-items-center">
                         @csrf
 
-                        <div class="col-md-4">
+                        <div class="col-md-12" hidden>
                             <div class="form-group">
                                 <label for="cod_internacao"></label>
-                                <input type="number" class="form-control" name="cod_internacao" value="{{ $inter->id }}"/>
+                                <input type="number" class="form-control" name="cod_internacao"
+                                    value="{{ $inter->id }}" />
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="data">Data:</label>
-                                <input type="date" class="form-control" name="data" value="<?php echo date('Y-m-d'); ?>"/>
+                                <input type="date" class="form-control" name="data" value="<?php echo date('Y-m-d'); ?>" />
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -130,40 +133,33 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="tmp_gestacao">Tempo de Gestação:</label>
-                                <input type="number" class="form-control" name="tmp_gestacao" />
+                                <label for="boo_sufarctante">Recebeu Sufarctante:</label>
+                                <select class="form-control" name="boo_sufarctante">
+                                    <option value=0 selected="selected">Não</option>
+                                    <option value=1>Sim</option>
+                                </select>
                             </div>
                         </div>
-
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="sexo">Sexo:</label>
-                                <input type="text" class="form-control" name="sexo" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="peso">Peso:</label>
-                                <input type="number" class="form-control" name="peso" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="tamanho">Tamanho:</label>
-                                <input type="number" class="form-control" name="tamanho" />
+                                <label for="sufarctante">Com quantas horas:</label>
+                                <input type="number" class="form-control" name="sufarctante" />
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="leito">Leito</label>:</label>
-                                <input type="number" class="form-control" name="leito" />
+                                <label for="boo_antibiotico">Recebeu Antibiotico:</label>
+                                <select class="form-control" name="boo_antibiotico">
+                                    <option value="0" selected="selected">Não</option>
+                                    <option value="1">Sim</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="dt_internacao">Data da Internação:</label>
-                                <input type="date" class="form-control" name="dt_internacao" />
+                                <label for="antibiotico">Com quantas horas:</label>
+                                <input type="number" class="form-control" name="antibiotico" />
                             </div>
                         </div>
 
