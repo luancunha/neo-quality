@@ -7,7 +7,7 @@
         <div class="col-sm-3">
             <div class="card border-info text-center">
                 <div class="card-body">
-                    <h5 class="card-title">RN's internados</h5>
+                    <h5 class="card-title">RNs internados</h5>
                     <p class="card-text fs-3" style="color: #0d6efd;">8 internações</p>
                 </div>
             </div>
@@ -15,7 +15,7 @@
         <div class="col-sm-3">
             <div class="card border-info text-center">
                 <div class="card-body">
-                    <h5 class="card-title">RN's internados</h5>
+                    <h5 class="card-title">RNs internados</h5>
                     <p class="card-text fs-3" style="color: #0d6efd;">8 internações</p>
                 </div>
             </div>
@@ -23,7 +23,7 @@
         <div class="col-sm-3">
             <div class="card border-info text-center">
                 <div class="card-body">
-                    <h5 class="card-title">RN's internados</h5>
+                    <h5 class="card-title">RNs internados</h5>
                     <p class="card-text fs-3" style="color: #0d6efd;">8 internações</p>
                 </div>
             </div>

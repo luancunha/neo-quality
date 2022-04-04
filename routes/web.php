@@ -20,3 +20,7 @@ Route::resource('dados_internacoes', 'DadosInternacaoController');
 Route::get('/internacoes/{status}/{id}', 'InternacaoController@status')->name('internacoes.status');
 
 Route::resource('estruturas', 'EstruturaController');
+
+Route::resource('resultados', 'ResultadoController');
+
+Route::get('/resultados/seacher', 'InternacaoController@seacher')->name('resultados.seacher');
