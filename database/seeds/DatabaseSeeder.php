@@ -92,6 +92,28 @@ class DatabaseSeeder extends Seeder
             'leito' => 00005,
             'dt_internacao' => '2021-04-05',
         ]);
+        DB::table('internacaos')->insert([
+            'nome' => 'Pedro Moura Lourenço',
+            'mae' => 'Bianca Mendes Lourenço',
+            'sexo' => 'Masculino',
+            'tipo_parto' => 'Normal',
+            'tmp_gestacao' => '37',
+            'peso' => 1200,
+            'tamanho' => 32,
+            'leito' => 00006,
+            'dt_internacao' => '2021-06-12',
+        ]);
+        DB::table('internacaos')->insert([
+            'nome' => 'Brenda Vasconcelos Silva',
+            'mae' => 'Maria Vasconcelos Peixoto',
+            'sexo' => 'Feminino',
+            'tipo_parto' => 'Cesária',
+            'tmp_gestacao' => '33',
+            'peso' => 1300,
+            'tamanho' => 33,
+            'leito' => 00007,
+            'dt_internacao' => '2021-05-22',
+        ]);
 
     }
 }

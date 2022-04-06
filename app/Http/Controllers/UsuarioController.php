@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Usuario;
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -40,10 +42,16 @@ class UsuarioController extends Controller
             'nome' => 'required|max:255',
             'crm_coren' => 'required|numeric',
             'email' => 'required|max:255',
-            'telefone' => 'required|numeric',
+            'telefone' => 'required|max:255',
             'senha' => 'required|max:255',
         ]);
         $show = Usuario::create($validatedData);
+        User::create([
+            'name' => $request['nome'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['senha']),
+            'cod_usuario' => $show->id,
+        ]);
         return redirect('/usuarios')->with('success', 'Usuário adicionado com sucesso!');
     }
 

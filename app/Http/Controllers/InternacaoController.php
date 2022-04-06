@@ -14,7 +14,7 @@ class InternacaoController extends Controller
      */
     public function index()
     {
-        $internacoes = Internacao::all();
+        $internacoes = Internacao::orderBy('status', 'asc')->paginate(6);
         return view('internacoes.index', compact('internacoes'));
     }
 

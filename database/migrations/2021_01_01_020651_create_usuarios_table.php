@@ -18,7 +18,7 @@ class CreateUsuariosTable extends Migration
             $table->string('nome');
             $table->integer('crm_coren')->nullable();;
             $table->string('email');
-            $table->integer('telefone')->nullable();;
+            $table->string('telefone')->nullable();;
             $table->string('senha');
             $table->timestamps();
         });

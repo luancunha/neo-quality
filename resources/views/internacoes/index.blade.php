@@ -20,6 +20,10 @@
                             </div>
                         @endif
 
+                        <div class="pagination justify-content-center">
+                            {{ $internacoes->links() }}
+                        </div>
+
                         <div class="row" style="justify-content: center;">
 
                             @foreach ($internacoes as $inter)

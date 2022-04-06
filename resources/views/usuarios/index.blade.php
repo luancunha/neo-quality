@@ -36,9 +36,9 @@
                                     <tr>
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->nome }}</td>
-                                        <td>{{ number_format($user->crm_coren, 0, ',', '.') }}</td>
+                                        <td>{{ number_format($user->crm_coren, 0, '.', '.') }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ number_format($user->telefone, 0, ',', '.') }}</td>
+                                        <td>{{ number_format($user->telefone, 0, ' ', ' ',) }}</td>
                                         <td class="text-center p-0 align-middle" width="70">
                                             <a href="{{ route('usuarios.edit', $user->id) }}"
                                                 class="btn btn-primary btn-sm">@lang('Editar')
