@@ -49,6 +49,8 @@
                                     <td>@lang('Tamanho')</td>
                                     <td>@lang('Sufarctante')</td>
                                     <td>@lang('Antibiotico')</td>
+                                    <td>@lang('Infecção')</td>
+                                    <td>@lang('Hemorragia')</td>
                                     <td colspan="3" class="text-center">@lang('Ações')</td>
                                 </tr>
                             </thead>
@@ -58,8 +60,10 @@
                                         <td>{{ $dado->data }}</td>
                                         <td>{{ $dado->peso }}</td>
                                         <td>{{ $dado->tamanho }}</td>
-                                        <td>{{ $dado->surfactante }}</td>
+                                        <td>{{ $dado->boo_sufarctante }}</td>
                                         <td>{{ $dado->antibiotico }}</td>
+                                        <td>{{ $dado->infec_bacte }}</td>
+                                        <td>{{ $dado->hemo_intra }}</td>
                                         <td class="text-center p-0 align-middle" width="70">
                                             <a href="{{ route('dados_internacoes.edit', $dado->id) }}"
                                                 class="btn btn-primary btn-sm">@lang('Editar')
@@ -147,19 +151,59 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="boo_antibiotico">Recebeu Antibiotico:</label>
-                                <select class="form-control" name="boo_antibiotico">
+                                <label for="antibiotico">Antibiotico:</label>
+                                <select class="form-control" name="antibiotico">
                                     <option value="0" selected="selected">Não</option>
                                     <option value="1">Sim</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="antibiotico">Com quantas horas:</label>
-                                <input type="number" class="form-control" name="antibiotico" />
+                                <label for="infec_bacte">Infecção Bacteriana:</label>
+                                <select class="form-control" name="infec_bacte">
+                                    <option value="0" selected="selected">Não</option>
+                                    <option value="1">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="infec_noso">Infecção Nesocomial:</label>
+                                <select class="form-control" name="infec_noso">
+                                    <option value="0" selected="selected">Não</option>
+                                    <option value="1">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="infec_fung">Infecção Fúngica:</label>
+                                <select class="form-control" name="infec_fung">
+                                    <option value="0" selected="selected">Não</option>
+                                    <option value="1">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="hemo_intra">Hemorragia Intraventricular:</label>
+                                <select class="form-control" name="hemo_intra">
+                                    <option value="0" selected="selected">Não</option>
+                                    <option value="1">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="entero_necro">Enterocolite:</label>
+                                <select class="form-control" name="entero_necro">
+                                    <option value="0" selected="selected">Não</option>
+                                    <option value="1">Sim</option>
+                                </select>
                             </div>
                         </div>
 

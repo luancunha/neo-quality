@@ -21,9 +21,13 @@ class CreateDadosInternacaosTable extends Migration
             $table->integer('peso');
             $table->integer('tamanho');
             $table->boolean('boo_sufarctante');
-            $table->integer('sufarctante');
-            $table->boolean('boo_antibiotico');
-            $table->integer('antibiotico');
+            $table->integer('sufarctante')->nullable();
+            $table->boolean('antibiotico');
+            $table->boolean('infec_bacte');
+            $table->boolean('infec_noso');
+            $table->boolean('infec_fung');
+            $table->boolean('hemo_intra');
+            $table->boolean('entero_necro');
             $table->timestamps();
         });
     }

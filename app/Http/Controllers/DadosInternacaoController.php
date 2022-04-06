@@ -43,9 +43,13 @@ class DadosInternacaoController extends Controller
             'peso' => 'required|numeric',
             'tamanho' => 'required|numeric',
             'boo_sufarctante' => 'boolean',
-            'sufarctante' => 'numeric',
-            'boo_antibiotico' => 'boolean',
-            'antibiotico' => 'numeric',
+            'sufarctante' => 'numeric|nullable',
+            'antibiotico' => 'boolean',
+            'infec_bacte' => 'boolean',
+            'infec_noso' => 'boolean',
+            'infec_fung' => 'boolean',
+            'hemo_intra' => 'boolean',
+            'entero_necro' => 'boolean',
         ]);
         $show = DadosInternacao::create($validatedData);
         return redirect("/dados_internacoes/$request->cod_internacao")->with('success', 'Dados da Internação adicionado com sucesso!');

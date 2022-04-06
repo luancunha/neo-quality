@@ -7,24 +7,24 @@
         <div class="col-sm-3">
             <div class="card border-info text-center">
                 <div class="card-body">
-                    <h5 class="card-title">RNs internados</h5>
-                    <p class="card-text fs-3" style="color: #0d6efd;">8 internações</p>
+                    <h5 class="card-title">Internados</h5>
+                    <p class="card-text fs-4" style="color: #0d6efd;">{{ $count_inter }} récem-nascidos</p>
                 </div>
             </div>
         </div>
         <div class="col-sm-3">
-            <div class="card border-info text-center">
+            <div class="card border-secundary text-center">
                 <div class="card-body">
-                    <h5 class="card-title">RNs internados</h5>
-                    <p class="card-text fs-3" style="color: #0d6efd;">8 internações</p>
+                    <h5 class="card-title">Altas</h5>
+                    <p class="card-text fs-4" style="color: rgba(0, 0, 0, 0.5);">{{ $count_alta }} récem-nascidos</p>
                 </div>
             </div>
         </div>
         <div class="col-sm-3">
-            <div class="card border-info text-center">
+            <div class="card border-danger text-center">
                 <div class="card-body">
-                    <h5 class="card-title">RNs internados</h5>
-                    <p class="card-text fs-3" style="color: #0d6efd;">8 internações</p>
+                    <h5 class="card-title">Óbitos</h5>
+                    <p class="card-text fs-4" style="color: #e3342f;">{{ $count_obito }} récem-nascidos</p>
                 </div>
             </div>
         </div>
