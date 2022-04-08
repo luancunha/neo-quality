@@ -66,6 +66,16 @@
                                                     </form>
                                                 </div>
                                             @else
+                                            <div class="text-center p-1 align-middle">
+                                                <form action="{{ route('internacoes.destroy', $inter->id) }}"
+                                                    method="post">
+                                                    @csrf
+                                                    
+                                                    <a href="{{ route('dados_internacoes.show', $inter->id) }}"
+                                                        class="btn btn-primary btn-sm">@lang('Ver')
+                                                    </a>
+                                                </form>
+                                            </div>
                                             @endif
 
                                         </div>

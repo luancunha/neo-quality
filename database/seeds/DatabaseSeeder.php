@@ -43,8 +43,8 @@ class DatabaseSeeder extends Seeder
             'sexo' => 'Masculino',
             'tipo_parto' => 'Normal',
             'tmp_gestacao' => '35',
-            'peso' => 1500,
-            'tamanho' => 40,
+            'peso' => 1200,
+            'tamanho' => 30,
             'leito' => 00001,
             'dt_internacao' => '2021-01-03',
         ]);
@@ -114,6 +114,78 @@ class DatabaseSeeder extends Seeder
             'leito' => 00007,
             'dt_internacao' => '2021-05-22',
         ]);
+
+        DB::table('dados_internacaos')->insert([
+            'cod_internacao' => 1,
+            'data' => '2021-01-04',
+            'peso' => '1200',
+            'tamanho' => '31',
+            'boo_sufarctante' => 0,
+            'sufarctante' => NULL,
+            'antibiotico' => 0,
+            'infec_bacte' => 0,
+            'infec_noso' => 0,
+            'infec_fung' => 0,
+            'hemo_intra' => 0,
+            'entero_necro' => 0,
+        ]);
+        DB::table('dados_internacaos')->insert([
+            'cod_internacao' => 1,
+            'data' => '2021-01-05',
+            'peso' => '1250',
+            'tamanho' => '31',
+            'boo_sufarctante' => 0,
+            'sufarctante' => NULL,
+            'antibiotico' => 0,
+            'infec_bacte' => 0,
+            'infec_noso' => 0,
+            'infec_fung' => 0,
+            'hemo_intra' => 0,
+            'entero_necro' => 0,
+        ]);
+        DB::table('dados_internacaos')->insert([
+            'cod_internacao' => 1,
+            'data' => '2021-01-06',
+            'peso' => '1300',
+            'tamanho' => '33',
+            'boo_sufarctante' => 0,
+            'sufarctante' => NULL,
+            'antibiotico' => 0,
+            'infec_bacte' => 0,
+            'infec_noso' => 0,
+            'infec_fung' => 1,
+            'hemo_intra' => 0,
+            'entero_necro' => 0,
+        ]);
+        DB::table('dados_internacaos')->insert([
+            'cod_internacao' => 1,
+            'data' => '2021-01-07',
+            'peso' => '1300',
+            'tamanho' => '33',
+            'boo_sufarctante' => 0,
+            'sufarctante' => NULL,
+            'antibiotico' => 0,
+            'infec_bacte' => 1,
+            'infec_noso' => 0,
+            'infec_fung' => 0,
+            'hemo_intra' => 0,
+            'entero_necro' => 0,
+        ]);
+        DB::table('dados_internacaos')->insert([
+            'cod_internacao' => 1,
+            'data' => '2021-01-08',
+            'peso' => '1400',
+            'tamanho' => '34',
+            'boo_sufarctante' => 0,
+            'sufarctante' => NULL,
+            'antibiotico' => 0,
+            'infec_bacte' => 0,
+            'infec_noso' => 1,
+            'infec_fung' => 0,
+            'hemo_intra' => 0,
+            'entero_necro' => 0,
+        ]);
+
 
     }
 }

@@ -10,7 +10,7 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="{{ $inter->status == 1 ? 'col-md-12' : 'col-md-4' }}">
                 <div class="card">
                     <div class="card-body">
 
@@ -23,6 +23,26 @@
                     </div>
                 </div>
             </div>
+
+            @if ($inter->status != 1)
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="card-text"><strong>Dias de internação:</strong> {{ $count_dias }} dias</h5>
+                            <h5 class="card-text"><strong>Peso do último dia:</strong> {{ $ult_dia->peso }} g
+                            </h5>
+                            <h5 class="card-text"><strong>Tamanho do último dia:</strong> {{ $ult_dia->tamanho }} cm
+                            </h5>
+                            <h5 class="card-text"><strong>Teve alguma Infecção:</strong> {{ $infec }}
+                            </h5>
+                            <h5 class="card-text"><strong>Teve alguma Hemorragia:</strong> {{ $hemo }}
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
         <br>
 
@@ -51,7 +71,9 @@
                                     <td>@lang('Antibiotico')</td>
                                     <td>@lang('Infecção')</td>
                                     <td>@lang('Hemorragia')</td>
-                                    <td colspan="3" class="text-center">@lang('Ações')</td>
+                                    @if ($inter->status == 1)
+                                        <td colspan="3" class="text-center">@lang('Ações')</td>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,29 +86,29 @@
                                         <td>{{ $dado->antibiotico }}</td>
                                         <td>{{ $dado->infec_bacte }}</td>
                                         <td>{{ $dado->hemo_intra }}</td>
-                                        <td class="text-center p-0 align-middle" width="70">
-                                            <a href="{{ route('dados_internacoes.edit', $dado->id) }}"
-                                                class="btn btn-primary btn-sm">@lang('Editar')
-                                            </a>
-                                        </td>
-                                        <td class="text-center p-0 align-middle" width="70">
-                                            <form action="{{ route('dados_internacoes.destroy', $dado->id) }}"
-                                                method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                                            </form>
-                                        </td>
+                                        @if ($inter->status == 1)
+                                            <td class="text-center p-0 align-middle" width="70">
+                                                <form action="{{ route('dados_internacoes.destroy', $dado->id) }}"
+                                                    method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                                </form>
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="col-md-12 text-center">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop">
-                                Adicionar
-                            </button>
-                        </div>
+
+                        @if ($inter->status == 1)
+                            <div class="col-md-12 text-center">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop">
+                                    Adicionar
+                                </button>
+                            </div>
+                        @endif
 
                     </div>
                 </div>

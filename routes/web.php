@@ -23,4 +23,4 @@ Route::resource('estruturas', 'EstruturaController');
 
 Route::resource('resultados', 'ResultadoController');
 
-Route::get('/resultados/seacher', 'InternacaoController@seacher')->name('resultados.seacher');
+Route::post('/resultados/search', 'ResultadoController@search')->name('resultados.search');

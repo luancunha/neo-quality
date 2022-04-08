@@ -9,10 +9,10 @@
                         <div class="d-flex justify-content-between w-100">
                             <span>@lang('Resultado / Relatório')</span>
                             <!--
-                                                                    <a href="{{ url('usuarios/create') }}" class="btn btn-primary">
-                                                                        <i class="fa fa-plus"></i> @lang('Criar Novo')
-                                                                    </a>
-                                                                -->
+                                                                            <a href="{{ url('usuarios/create') }}" class="btn btn-primary">
+                                                                                <i class="fa fa-plus"></i> @lang('Criar Novo')
+                                                                            </a>
+                                                                        -->
                         </div>
                     </div>
                     <div class="card-body">
@@ -22,55 +22,36 @@
                             </div>
                         @endif
 
-                        <form method="post" action="{{ route('resultados.seacher') }}" class="row gy-2 align-items-center"
+                        <form method="post" action="{{ route('resultados.search') }}" class="row gy-2 align-items-center"
                             style="margin: 0 10em;">
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="rns_resultado" class="col-sm-4 col-form-label">Récem-Nascido:</label>
-                                <div class="col-sm-8 border border-2" style="height: 8em; overflow-y: scroll;">
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                            checked>
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Todos
-                                        </label>
-                                    </div>
-                                    @foreach ($internacoes as $inter)
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                {{ $inter->nome }}
-                                            </label>
-                                        </div>
-                                    @endforeach
-
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="rns_resultado" class="col-sm-4 col-form-label">Sexo:</label>
+                                <label class="col-sm-4 col-form-label">Sexo:</label>
                                 <div class="col-sm-8 border border-2" style="height: 5.5em; overflow-y: scroll;">
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
-                                            checked>
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="radio" name="sexo"
+                                            id="sexo" value="1" checked>
+                                        <label class="form-check-label">
                                             Todos
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
+                                        <input class="form-check-input" type="radio" name="sexo"
+                                            id="sexo" value="2">
+                                        <label class="form-check-label">
                                             Feminino
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
+                                        <input class="form-check-input" type="radio" name="sexo"
+                                            id="sexo" value="3">
+                                        <label class="form-check-label">
                                             Masculino
                                         </label>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -78,20 +59,20 @@
                                 <div class="col-sm-8 border border-2" style="height: 5.5em; overflow-y: scroll;">
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Taxa de Infecção nesocominal
+                                        <input class="form-check-input" type="checkbox" value="1" id="taxa">
+                                        <label class="form-check-label">
+                                            Taxa de Infecção Fúngica
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Taxa de Infecção nesocominal
+                                        <input class="form-check-input" type="checkbox" value="2" id="taxa">
+                                        <label class="form-check-label">
+                                            Taxa de Infecção Nesocomial
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
+                                        <input class="form-check-input" type="checkbox" value="3" id="taxa">
+                                        <label class="form-check-label">
                                             Taxa de óbitos
                                         </label>
                                     </div>
@@ -99,7 +80,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="inputPassword3" class="col-sm-4 col-form-label">Período:</label>
+                                <label for="periodo" class="col-sm-4 col-form-label">Período:</label>
                                 <div class="col-sm-4">
                                     <input type="date" class="form-control" id="inputPassword3">
                                 </div>

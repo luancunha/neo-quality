@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DadosInternacao;
 use App\Internacao;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DadosInternacaoController extends Controller
 {
@@ -65,7 +66,14 @@ class DadosInternacaoController extends Controller
     {
         $inter = Internacao::findOrFail($id);
         $dados_internacoes = DadosInternacao::where('cod_internacao', $id)->get();
-        return view('dados_internacoes.show',compact('inter', 'dados_internacoes'));
+
+        $count_dias = DB::table('dados_internacaos')->where('cod_internacao', $id)->count();
+        $ult_dia = DB::table('dados_internacaos')->where('cod_internacao', $id)->latest('data')->first();
+
+        $infec = DB::table('dados_internacaos')->where('cod_internacao', $id)->sum(DB::raw('infec_bacte + infec_noso + infec_fung'));
+        $hemo = DB::table('dados_internacaos')->where('cod_internacao', $id)->sum(DB::raw('hemo_intra'));
+
+        return view('dados_internacoes.show',compact('inter', 'dados_internacoes', 'count_dias', 'ult_dia', 'infec', 'hemo'));
     }
 
     /**

@@ -126,7 +126,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/resultados') }}" class="nav-link link-dark {{ (request()->is('relatorios*')) ? 'active' : '' }}">
+                                    <a href="{{ url('/resultados') }}" class="nav-link link-dark {{ (request()->is('resultados*')) ? 'active' : '' }}">
                                         <i class="fas fa-chart-pie bi me-2"></i>
                                         Relatórios
                                     </a>
