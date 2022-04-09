@@ -93,7 +93,7 @@ class ResultadoController extends Controller
      */
     public function search(Request $request)
     {
-        $search = $request;
+        $search = $request->all();
         return view('resultados.search',compact('search'));
     }
 }

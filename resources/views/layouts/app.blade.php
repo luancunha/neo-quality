@@ -15,11 +15,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/all.js') }}" defer></script>
-    <script src="{{ asset('js/sidebars.js') }}" defer></script>
-
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -76,7 +71,7 @@
                     </li>
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
+                                                    document.getElementById('logout-form').submit();">
                             <i class="fas fa-sign-out-alt me-2"></i>{{ __('Sair') }}
                         </a>
 
@@ -100,7 +95,8 @@
 
                             <ul class="nav nav-pills flex-column mb-auto">
                                 <li class="nav-item">
-                                    <a href="/home" class="nav-link link-dark {{ (request()->is('home*')) ? 'active' : '' }}">
+                                    <a href="/home"
+                                        class="nav-link link-dark {{ request()->is('home*') ? 'active' : '' }}">
                                         <i class="fas fa-house-chimney bi me-2"></i>
                                         Painel
                                     </a>
@@ -112,13 +108,15 @@
                                     </span>
                                     <ul style="list-style-type: none; margin: 0; padding-left: 1em;">
                                         <li class="nav-item">
-                                            <a href="{{ url('/estruturas') }}" class="nav-link link-dark {{ (request()->is('estruturas*')) ? 'active' : '' }}">
+                                            <a href="{{ url('/estruturas') }}"
+                                                class="nav-link link-dark {{ request()->is('estruturas*') ? 'active' : '' }}">
                                                 <i class="fas fa-clinic-medical bi me-2"></i>
                                                 Estrutura
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('/internacoes') }}" class="nav-link link-dark {{ (request()->is('internacoes*') || request()->is('dados_internacoes*')) ? 'active' : '' }}">
+                                            <a href="{{ url('/internacoes') }}"
+                                                class="nav-link link-dark {{ request()->is('internacoes*') || request()->is('dados_internacoes*') ? 'active' : '' }}">
                                                 <i class="fas fa-clipboard-list bi me-2"></i>
                                                 Internação
                                             </a>
@@ -126,14 +124,16 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/resultados') }}" class="nav-link link-dark {{ (request()->is('resultados*')) ? 'active' : '' }}">
+                                    <a href="{{ url('/resultados') }}"
+                                        class="nav-link link-dark {{ request()->is('resultados*') ? 'active' : '' }}">
                                         <i class="fas fa-chart-pie bi me-2"></i>
                                         Relatórios
                                     </a>
                                 </li>
                                 @if (Auth::user()->name == 'admin')
                                     <li>
-                                        <a href="{{ url('/usuarios') }}" class="nav-link link-dark {{ (request()->is('usuarios*')) ? 'active' : '' }}">
+                                        <a href="{{ url('/usuarios') }}"
+                                            class="nav-link link-dark {{ request()->is('usuarios*') ? 'active' : '' }}">
                                             <i class="fas fa-users bi me-2"></i>
                                             Usuários
                                         </a>
@@ -166,6 +166,13 @@
             @yield('content')
         </main>
     @endauth
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/all.js') }}" defer></script>
+    <script src="{{ asset('js/sidebars.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+
+    @stack('scripts')
 
 </body>
 

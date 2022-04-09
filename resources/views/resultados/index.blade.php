@@ -59,19 +59,19 @@
                                 <div class="col-sm-8 border border-2" style="height: 5.5em; overflow-y: scroll;">
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" id="taxa">
+                                        <input class="form-check-input" type="checkbox" value="1" name="taxa1" id="taxa1">
                                         <label class="form-check-label">
                                             Taxa de Infecção Fúngica
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="2" id="taxa">
+                                        <input class="form-check-input" type="checkbox" value="1" name="taxa2" id="taxa2">
                                         <label class="form-check-label">
                                             Taxa de Infecção Nesocomial
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="3" id="taxa">
+                                        <input class="form-check-input" type="checkbox" value="1" name="taxa3" id="taxa3">
                                         <label class="form-check-label">
                                             Taxa de óbitos
                                         </label>
@@ -82,10 +82,10 @@
                             <div class="row mb-3">
                                 <label for="periodo" class="col-sm-4 col-form-label">Período:</label>
                                 <div class="col-sm-4">
-                                    <input type="date" class="form-control" id="inputPassword3">
+                                    <input type="date" class="form-control" name="data_ini" id="data_ini">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="date" class="form-control" id="inputPassword3">
+                                    <input type="date" class="form-control" name="data_fim" id="data_fim">
                                 </div>
                             </div>
 
@@ -99,4 +99,5 @@
             </div>
         </div>
     </div>
+    
 @endsection
