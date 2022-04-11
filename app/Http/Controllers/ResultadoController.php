@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Internacao;
 use App\Resultado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 
 class ResultadoController extends Controller
 {
@@ -93,7 +95,30 @@ class ResultadoController extends Controller
      */
     public function search(Request $request)
     {
-        $search = $request->all();
-        return view('resultados.search',compact('search'));
+        $sexo = $request->sexo;
+        $taxa_infFun = $request->taxa_infFun;
+        $taxa_infNeo = $request->taxa_infNeo;
+        $taxa_obi = $request->taxa_obi;
+        $data_ini = $request->data_ini;
+        $data_fim = $request->data_fim;
+
+        $nulldata = DB::table('internacaos')->whereDate('updated_at','>=', $data_ini)->first();
+        if ($nulldata == null) {
+            $title = Null;
+            $label = Null;
+            $data = Null;
+            return view('resultados.search', compact('title', 'label', 'data', 'nulldata'))->with('success', 'Nenhum dado encontrado!');
+        }
+
+        if ($taxa_obi == 1) {
+            if ($sexo == 1) {
+                $alta = DB::table('internacaos')->where('status', 2)->whereDate('updated_at', '>=', $data_ini)->whereDate('updated_at', '<=', $data_fim)->count();
+                $obit = DB::table('internacaos')->where('status', 3)->whereDate('updated_at', '>=', $data_ini)->whereDate('updated_at', '<=', $data_fim)->count();
+                $title = 'Taxa de Óbitos';
+                $label = collect(['Altas', 'Óbitos']);
+                $data = collect([$alta, $obit]);
+                return view('resultados.search', compact('title', 'label', 'data'));
+            }
+        }
     }
 }

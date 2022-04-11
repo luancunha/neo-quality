@@ -59,19 +59,19 @@
                                 <div class="col-sm-8 border border-2" style="height: 5.5em; overflow-y: scroll;">
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" name="taxa1" id="taxa1">
+                                        <input class="form-check-input" type="checkbox" value="1" name="taxa_infFun" id="taxa_infFun">
                                         <label class="form-check-label">
                                             Taxa de Infecção Fúngica
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" name="taxa2" id="taxa2">
+                                        <input class="form-check-input" type="checkbox" value="1" name="taxa_infNeo" id="taxa_infNeo">
                                         <label class="form-check-label">
                                             Taxa de Infecção Nesocomial
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" name="taxa3" id="taxa3">
+                                        <input class="form-check-input" type="checkbox" value="1" name="taxa_obi" id="taxa_obi">
                                         <label class="form-check-label">
                                             Taxa de óbitos
                                         </label>
@@ -82,10 +82,10 @@
                             <div class="row mb-3">
                                 <label for="periodo" class="col-sm-4 col-form-label">Período:</label>
                                 <div class="col-sm-4">
-                                    <input type="date" class="form-control" name="data_ini" id="data_ini">
+                                    <input type="date" class="form-control" name="data_ini" id="data_ini" required>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="date" class="form-control" name="data_fim" id="data_fim">
+                                    <input type="date" class="form-control" name="data_fim" id="data_fim" required>
                                 </div>
                             </div>
 
