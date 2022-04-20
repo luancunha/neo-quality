@@ -14,23 +14,19 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        @if(!empty($success))
+                        @if (!empty($success))
                             <div class="alert alert-info" role="alert">
                                 {{ $success }}
                             </div>
                         @endif
-                        <div class="row">
+                        <div class="row d-flex justify-content-center">
                             <div class="col-4">
-                                <canvas id="myChart" height="10"></canvas>
+                                <canvas id="myChart" width="100" height="100"></canvas>
                             </div>
-                            <div class="col-4">
-                                <canvas id="myChart"></canvas>
-                            </div>
-                            <div class="col-4">
-                                <canvas id="myChart"></canvas>
+                            <div class="col-6">
+                                <canvas id="myChart2" width="100" height="70"></canvas>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -47,34 +43,8 @@
                 labels: {!! $label !!},
                 datasets: [{
                     data: {{ $data }},
-                    backgroundColor: [
-                        'rgba(255,0,0,0.2)',
-                        'rgba(0,255,0,0.2)',
-                        'rgba(0,0,255,0.2)',
-                        'rgba(255,255,0,0.2)',
-                        'rgba(0,255,255,0.2)',
-                        'rgba(255,0,255,0.2)',
-                        'rgba(192,192,192,0.2)',
-                        'rgba(128,0,0,0.2)',
-                        'rgba(128,128,0,0.2)',
-                        'rgba(0,128,0,0.2)',
-                        'rgba(0,128,128,0.2)',
-                        'rgba(0,0,128,0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(255,0,0,1)',
-                        'rgba(0,255,0,1)',
-                        'rgba(0,0,255,1)',
-                        'rgba(255,255,0,1)',
-                        'rgba(0,255,255,1)',
-                        'rgba(255,0,255,1)',
-                        'rgba(192,192,192,1)',
-                        'rgba(128,0,0,1)',
-                        'rgba(128,128,0,1)',
-                        'rgba(0,128,0,1)',
-                        'rgba(0,128,128,1)',
-                        'rgba(0,0,128,1)',
-                    ],
+                    backgroundColor: {!! $cores !!},
+                    borderColor: {!! $coresb !!},
                     borderWidth: 1,
                     hoverOffset: 4
                 }]
@@ -99,6 +69,67 @@
                         }
                     },
                 }
+            }
+        });
+
+        const ctx2 = document.getElementById('myChart2').getContext('2d');
+        const myChart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: {!! $label2 !!},
+                datasets: [{
+                        label: 'Infecções',
+                        data: {{ $data2 }},
+                        backgroundColor: {!! $coresb !!},
+                        borderColor: {!! $coresb !!},
+                        borderWidth: 1,
+                        hoverOffset: 4,
+                        barPercentage: 0.5,
+                        barThickness: 80,
+                        minBarLength: 5,
+                    },
+                    {
+                        label: 'Total de Dias',
+                        data: {{ $data3 }},
+                        backgroundColor: {!! $cores !!},
+                        borderColor: {!! $coresb !!},
+                        borderWidth: 1,
+                        hoverOffset: 4
+                    },
+                ]
+            },
+            options: {
+                layout: {
+                    padding: 10,
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '{{ $title2 }}',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                },
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true,
+                    },
+                },
+                interaction: {
+                    mode: 'index',
+                },
             }
         });
     </script>

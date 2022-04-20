@@ -39,14 +39,14 @@
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="sexo"
-                                            id="sexo" value="2">
+                                            id="sexo" value="2" disabled>
                                         <label class="form-check-label">
                                             Feminino
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="sexo"
-                                            id="sexo" value="3">
+                                            id="sexo" value="3" disabled>
                                         <label class="form-check-label">
                                             Masculino
                                         </label>
@@ -56,8 +56,14 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="rns_resultado" class="col-sm-4 col-form-label">Indicador:</label>
-                                <div class="col-sm-8 border border-2" style="height: 5.5em; overflow-y: scroll;">
+                                <div class="col-sm-8 border border-2" style="height: 7em; overflow-y: scroll;">
 
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="1" name="taxa_infBac" id="taxa_infBac">
+                                        <label class="form-check-label">
+                                            Taxa de Infecção Bacteriana
+                                        </label>
+                                    </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="1" name="taxa_infFun" id="taxa_infFun">
                                         <label class="form-check-label">
@@ -82,10 +88,10 @@
                             <div class="row mb-3">
                                 <label for="periodo" class="col-sm-4 col-form-label">Período:</label>
                                 <div class="col-sm-4">
-                                    <input type="date" class="form-control" name="data_ini" id="data_ini" required>
+                                    <input type="date" class="form-control" name="data_ini" id="data_ini" max="{{ now()->toDateString('Y-m-d') }}" required>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="date" class="form-control" name="data_fim" id="data_fim" required>
+                                    <input type="date" class="form-control" name="data_fim" id="data_fim" max="{{ now()->toDateString('Y-m-d') }}" required>
                                 </div>
                             </div>
 
